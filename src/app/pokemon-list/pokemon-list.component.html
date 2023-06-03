@@ -1,0 +1,7 @@
+<h1>Pokemon list</h1>
+
+<div *ngFor="let pokemon of pokemonList" [routerLink]="pokemon.id + '/details'">
+    <div>{{ pokemon.name }}</div>
+    <img [src]="pokemon.sprites.other['official-artwork'].front_default" />
+    <br />
+</div>
