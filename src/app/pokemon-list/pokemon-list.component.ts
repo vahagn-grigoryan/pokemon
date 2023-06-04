@@ -68,9 +68,6 @@ export class PokemonListComponent implements OnInit, AfterViewInit {
             .subscribe((pokemonList: Pokemon[]) => {
                 this.nextListIsLoading = false;
                 this.pokemonCarousel.push(pokemonList);
-                // if (this.pokemonCarousel.length > 3) {
-                //     this.pokemonCarousel.shift();
-                // }
             });
     }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PokemonService } from '../core/services/pokemon.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { concatMap, from, map, toArray } from 'rxjs';
 import { PokemonEvolvesTo } from '../core/models/pokemon';
 
@@ -19,11 +19,7 @@ export class PokemonEvolutionChainComponent implements OnInit {
     private pokemonId = '';
     evolutions: Evolutions[] = [];
 
-    constructor(
-        private pokemonService: PokemonService,
-        private route: ActivatedRoute,
-        private router: Router
-    ) {}
+    constructor(private pokemonService: PokemonService, private route: ActivatedRoute) {}
 
     ngOnInit() {
         this.pokemonId = this.route.snapshot.paramMap.get('id') ?? '';

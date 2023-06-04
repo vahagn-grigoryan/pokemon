@@ -3,6 +3,7 @@
     type="button"
     data-bs-target="#carouselExample"
     data-bs-slide="prev"
+    data-cy="prev"
 >
     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Previous</span>
@@ -11,19 +12,21 @@
     <div class="carousel-inner">
         <div
             class="carousel-item"
+            data-cy="pokemon-list"
             *ngFor="let pokemonList of pokemonCarousel; first as isFirst"
             [ngClass]="{ active: isFirst }"
         >
             <div class="row g-1">
-                <div class="col-3" *ngFor="let pokemon of pokemonList">
+                <div class="col-3" *ngFor="let pokemon of pokemonList" data-cy="pokemon-card">
                     <div role="button" class="card h-100" [routerLink]="pokemon.name + '/details'">
                         <div class="card-body">
-                            <p class="card-title">
+                            <p class="card-title" data-cy="card-title">
                                 {{ pokemon.name }}
                             </p>
                         </div>
                         <img
                             class="card-img-bottom"
+                            data-cy="card-image"
                             [src]="pokemon.sprites.other['official-artwork'].front_default"
                             [alt]="pokemon.name"
                         />
@@ -40,6 +43,7 @@
     data-bs-slide="next"
     [disabled]="nextListIsLoading"
     (click)="loadNextList()"
+    data-cy="next"
 >
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="visually-hidden">Next</span>
