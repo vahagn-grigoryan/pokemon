@@ -1,1 +1,70 @@
-<p>pokemon-details works!</p>
+<button type="button" class="btn btn-outline-secondary mb-3" routerLink="/pokemon-list/">
+    back to the list
+</button>
+
+<div class="card mb-3">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img
+                *ngIf="pokemon?.sprites?.other"
+                [src]="pokemon.sprites.other['official-artwork'].front_default"
+                class="img-fluid rounded-start"
+                [alt]="pokemon.name"
+            />
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h2 class="card-title">{{ pokemon.name }}</h2>
+
+                <small class="text-body-secondary">height</small>
+                <div
+                    class="progress mb-3"
+                    role="progressbar"
+                    aria-label="pokemon height"
+                    [attr.aria-valuenow]="pokemon.height"
+                    aria-valuemin="0"
+                    aria-valuemax="20"
+                >
+                    <div class="progress-bar" [style.width.%]="pokemon.height">
+                        {{ pokemon.height }}
+                    </div>
+                </div>
+
+                <small class="text-body-secondary">weight</small>
+                <div
+                    class="progress mb-3"
+                    role="progressbar"
+                    aria-label="pokemon weight"
+                    [attr.aria-valuenow]="pokemon.weight"
+                    aria-valuemin="0"
+                    aria-valuemax="4000"
+                >
+                    <div class="progress-bar" [style.width.%]="pokemon.weight / 40">
+                        {{ pokemon.weight }}
+                    </div>
+                </div>
+
+                <div><small class="text-body-secondary">abilities</small></div>
+                <div *ngFor="let ability of pokemon.abilities" class="badge bg-primary me-1">
+                    {{ ability.ability.name }}
+                </div>
+
+                <div class="mt-3"><small class="text-body-secondary">experience</small></div>
+                <div
+                    class="progress mb-3"
+                    role="progressbar"
+                    aria-label="pokemon weight"
+                    [attr.aria-valuenow]="pokemon.base_experience"
+                    aria-valuemin="0"
+                    aria-valuemax="400"
+                >
+                    <div class="progress-bar" [style.width.%]="pokemon.base_experience / 4">
+                        {{ pokemon.base_experience }}
+                    </div>
+                </div>
+
+                <app-pokemon-evolution-chain></app-pokemon-evolution-chain>
+            </div>
+        </div>
+    </div>
+</div>

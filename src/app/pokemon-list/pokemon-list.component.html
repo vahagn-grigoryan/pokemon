@@ -1,7 +1,46 @@
-<h1>Pokemon list</h1>
-
-<div *ngFor="let pokemon of pokemonList" [routerLink]="pokemon.id + '/details'">
-    <div>{{ pokemon.name }}</div>
-    <img [src]="pokemon.sprites.other['official-artwork'].front_default" />
-    <br />
+<button
+    class="carousel-control-prev bg-danger w-auto"
+    type="button"
+    data-bs-target="#carouselExample"
+    data-bs-slide="prev"
+>
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+</button>
+<div id="carouselExample" class="carousel slide" #carouselExample>
+    <div class="carousel-inner">
+        <div
+            class="carousel-item"
+            *ngFor="let pokemonList of pokemonCarousel; first as isFirst"
+            [ngClass]="{ active: isFirst }"
+        >
+            <div class="row g-1">
+                <div class="col-3" *ngFor="let pokemon of pokemonList">
+                    <div role="button" class="card h-100" [routerLink]="pokemon.name + '/details'">
+                        <div class="card-body">
+                            <p class="card-title">
+                                {{ pokemon.name }}
+                            </p>
+                        </div>
+                        <img
+                            class="card-img-bottom"
+                            [src]="pokemon.sprites.other['official-artwork'].front_default"
+                            [alt]="pokemon.name"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+<button
+    class="carousel-control-next bg-danger w-auto"
+    type="button"
+    data-bs-target="#carouselExample"
+    data-bs-slide="next"
+    [disabled]="nextListIsLoading"
+    (click)="loadNextList()"
+>
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+</button>

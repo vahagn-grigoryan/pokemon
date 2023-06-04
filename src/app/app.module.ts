@@ -10,6 +10,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { PokemonContainerComponent } from './pokemon-container/pokemon-container.component';
 import { CoreModule } from './core/core.module';
 import { HttpClientModule } from '@angular/common/http';
+import { NgOptimizedImage } from '@angular/common';
 
 @NgModule({
     declarations: [
@@ -20,7 +21,7 @@ import { HttpClientModule } from '@angular/common/http';
         PageNotFoundComponent,
         PokemonContainerComponent,
     ],
-    imports: [BrowserModule, AppRoutingModule, CoreModule, HttpClientModule],
+    imports: [BrowserModule, AppRoutingModule, CoreModule, HttpClientModule, NgOptimizedImage],
     providers: [],
     bootstrap: [AppComponent],
 })
