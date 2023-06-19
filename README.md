@@ -1,6 +1,8 @@
 # Gotta Code 'Em All!
 
-Build a web application that uses the Pokemon API to display a list of Pokemon and their details. The application should have two pages: a list of Pokemon and a detail page for each individual Pokemon. The detail page should also display the selected Pokemon's evolutions, if any.
+Web application that uses the Pokemon API to display a list of Pokemon and their details. 
+The application has two pages: a list of Pokemon and a detail page for each individual Pokemon. 
+The detail page displays the selected Pokemon's evolutions, if any.
 
 ## API Documentation
 
@@ -9,9 +11,10 @@ Build a web application that uses the Pokemon API to display a list of Pokemon a
 - Endpoint for Pokemon Details: `https://pokeapi.co/api/v2/pokemon/{id or name}/`
 - Endpoint for Pokemon Evolution Chain: `https://pokeapi.co/api/v2/evolution-chain/{id}/`
 
-## Technical Requirements
+## Tech stack
 
-- Use any TypeScript framework (Angular, Vue, React, as long as it is TypeScript).
+- The project is set up using `node v18.16.0`
+- using Angular + TypeScript
 
 ## Acceptance Criteria
 
@@ -24,13 +27,19 @@ Build a web application that uses the Pokemon API to display a list of Pokemon a
 
 ## Tests
 
-- Implement tests for bullet points 1 and 2 in the acceptance criteria.
+- Project uses Cypress to test for bullet points 1 and 2 in the acceptance criteria.
 
-You don't have to spend too much time on styling if you're limited on time. Just focus on building an application that will make even Pikachu proud.
+### Prettify
+`npm run prettify` runs prettier over your `*.ts`, `*.scss`, and `*.html` files.
 
+### Lint
+`npm run lint` lints the project.
 
-## When Finished
-You have been invited as an outside collaborator in this repository. 
-Please send the code test to us by:
-* Create a new branch in this repository
-* Create a pull request from that branch to the main branch
+### Before each git commit!
+Please run `npm run is-fe-green`. It will prettify, lint, and test (unit + e2e) the project to decrease the chance of your build pipeline failing.
+
+This will perform all the steps to build a pipeline on your machine.
+This can save us from possible frustration and waste of time.
+
+### End-to-end tests
+`npm run test-e2e` executes Cypress end-to-end tests.
